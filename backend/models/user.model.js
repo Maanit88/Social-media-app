@@ -19,6 +19,21 @@ const userSchema = new mongoose.Schema({
     select: false,
   },
 
+  bio: String,
+  coverImg: String,
+
+  followers: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+    },
+  ],
+  following: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+    },
+  ],
   profileImage: String,
   verificationToken: String,
   verificationTokenExpire: Date,
